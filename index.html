@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futbol Antrenman</title>
+<style>
+body { font-family: Arial; background:#0f172a; color:white; text-align:center; }
+.container { padding:20px; }
+.task { background:#1e293b; margin:10px; padding:15px; border-radius:10px; }
+button { padding:10px; margin-top:10px; border:none; border-radius:5px; }
+iframe { width:100%; height:200px; border-radius:10px; }
+.score { font-size:20px; margin:10px; }
+</style>
+</head><body>
+<div class="container"><h2>⚽ Günlük Antrenman</h2><div class="score">
+Puan: <span id="score">0</span> | 🔥 Seri: <span id="streak">0</span>
+</div><div class="task">
+<h3>Top Sürme</h3>
+<iframe src="https://www.youtube.com/embed/2V3qkM7Xn6w"></iframe>
+<button onclick="completeTask(1)">Tamamladım</button>
+</div><div class="task">
+<h3>Pas Çalışması</h3>
+<iframe src="https://www.youtube.com/embed/Iy1R8nW0cK0"></iframe>
+<button onclick="completeTask(2)">Tamamladım</button>
+</div><div class="task">
+<h3>Şut Çalışması</h3>
+<iframe src="https://www.youtube.com/embed/1vF8z2LZ6nU"></iframe>
+<button onclick="completeTask(3)">Tamamladım</button>
+</div></div><script>
+let score = localStorage.getItem("score") || 0;
+let streak = localStorage.getItem("streak") || 0;
+
+document.getElementById("score").innerText = score;
+document.getElementById("streak").innerText = streak;
+
+function completeTask(id){
+    let key = "task_" + id;
+    if(!localStorage.getItem(key)){
+        localStorage.setItem(key, true);
+        score = parseInt(score) + 10;
+        localStorage.setItem("score", score);
+        document.getElementById("score").innerText = score;
+    }
+}
+
+function checkDailyReset(){
+    let today = new Date().toDateString();
+    let last = localStorage.getItem("lastDay");
+
+    if(last != today){
+        localStorage.clear();
+        localStorage.setItem("lastDay", today);
+
+        streak = parseInt(streak) + 1;
+        localStorage.setItem("streak", streak);
+    }
+}
+
+checkDailyReset();
+</script></body>
+</html><!DOCTYPE html><html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futbol Antrenman</title>
+<style>
+body { font-family: Arial; background:#0f172a; color:white; text-align:center; }
+.container { padding:20px; }
+.task { background:#1e293b; margin:10px; padding:15px; border-radius:10px; }
+button { padding:10px; margin-top:10px; border:none; border-radius:5px; }
+iframe { width:100%; height:200px; border-radius:10px; }
+.score { font-size:20px; margin:10px; }
+</style>
+</head><body>
+<div class="container"><h2>⚽ Günlük Antrenman</h2><div class="score">
+Puan: <span id="score">0</span> | 🔥 Seri: <span id="streak">0</span>
+</div><div class="task">
+<h3>Top Sürme</h3>
+<iframe src="https://www.youtube.com/embed/2V3qkM7Xn6w"></iframe>
+<button onclick="completeTask(1)">Tamamladım</button>
+</div><div class="task">
+<h3>Pas Çalışması</h3>
+<iframe src="https://www.youtube.com/embed/Iy1R8nW0cK0"></iframe>
+<button onclick="completeTask(2)">Tamamladım</button>
+</div><div class="task">
+<h3>Şut Çalışması</h3>
+<iframe src="https://www.youtube.com/embed/1vF8z2LZ6nU"></iframe>
+<button onclick="completeTask(3)">Tamamladım</button>
+</div></div><script>
+let score = localStorage.getItem("score") || 0;
+let streak = localStorage.getItem("streak") || 0;
+
+document.getElementById("score").innerText = score;
+document.getElementById("streak").innerText = streak;
+
+function completeTask(id){
+    let key = "task_" + id;
+    if(!localStorage.getItem(key)){
+        localStorage.setItem(key, true);
+        score = parseInt(score) + 10;
+        localStorage.setItem("score", score);
+        document.getElementById("score").innerText = score;
+    }
+}
+
+function checkDailyReset(){
+    let today = new Date().toDateString();
+    let last = localStorage.getItem("lastDay");
+
+    if(last != today){
+        localStorage.clear();
+        localStorage.setItem("lastDay", today);
+
+        streak = parseInt(streak) + 1;
+        localStorage.setItem("streak", streak);
+    }
+}
+
+checkDailyReset();
+</script></body>
+</html>
