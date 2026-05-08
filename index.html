@@ -5,27 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KickerKids Training</title>
   <style>
-    *{box-sizing:border-box} body{margin:0;font-family:Arial,system-ui,sans-serif;background:#080b10;color:#f5f7fb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,system-ui,sans-serif;background:#080b10;color:#f5f7fb}
     .app{max-width:1100px;margin:auto;padding:18px 14px 90px}
-    h1,h2,h3,p{margin:0} .muted{color:#aab6c7}.top{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    h1,h2,h3,p{margin:0}
+    .muted{color:#aab6c7}
+    .top{display:flex;gap:12px;align-items:center;margin-bottom:18px}
     .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#48e28f,#52a8ff);display:grid;place-items:center;font-size:26px}
-    h1{font-size:clamp(28px,8vw,44px);line-height:1}.sub{margin-top:6px;color:#aab6c7}
+    h1{font-size:clamp(28px,8vw,44px);line-height:1}
+    .sub{margin-top:6px;color:#aab6c7}
     .tabs{position:sticky;bottom:12px;z-index:5;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:#101722dd;border:1px solid #253246;padding:6px;border-radius:10px;margin-top:24px}
-    button,a{font:inherit}.tab,.btn{border:0;border-radius:8px;min-height:44px;font-weight:800;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;text-align:center}
-    .tab{background:transparent;color:#aab6c7}.tab.active,.primary{background:#48e28f;color:#071015}.secondary{background:#0c121b;color:white;border:1px solid #263348}.done{background:#163526;color:#baffd5;border:1px solid #48e28f}
-    .view{display:none}.view.active{display:block}.grid{display:grid;gap:12px}.hero{display:grid;gap:12px;margin-bottom:20px}
+    button,a{font:inherit}
+    .tab,.btn{border:0;border-radius:8px;min-height:44px;font-weight:800;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;text-align:center}
+    .tab{background:transparent;color:#aab6c7}
+    .tab.active,.primary{background:#48e28f;color:#071015}
+    .secondary{background:#0c121b;color:white;border:1px solid #263348}
+    .done{background:#163526;color:#b3efc7}
+    .view{display:none}
+    .view.active{display:block}
+    .grid{display:grid;gap:12px}
+    .hero{display:grid;gap:12px;margin-bottom:20px}
     .card{background:#101722cc;border:1px solid #253246;border-radius:10px;padding:14px;box-shadow:0 18px 42px #0006}
-    .profile{display:flex;gap:12px;align-items:center}.avatar{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,#48e28f,#52a8ff);display:grid;place-items:center;color:#071015;font-size:34px;font-weight:900;object-fit:cover}
-    .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.label{font-size:12px;color:#aab6c7;font-weight:900;text-transform:uppercase}.value{font-size:28px;font-weight:900;margin-top:4px}
-    .bar{height:12px;background:#060a10;border:1px solid #263348;border-radius:999px;overflow:hidden;margin-top:10px}.fill{height:100%;width:0;background:linear-gradient(90deg,#48e28f,#52a8ff)}
-    .head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:24px 0 12px}.pill,.tag{border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}
-    .pill{background:#ffd166;color:#081018}.tag{background:#0b111a;color:#aab6c7;border:1px solid #263348}
-    .exercise{overflow:hidden;padding:0}.thumb{min-height:145px;padding:14px;display:flex;align-items:end;position:relative;background:var(--bg);isolation:isolate}
-    .thumb:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#0001,#000b);z-index:-1}.ball{position:absolute;right:14px;top:14px;background:white;color:#111;border-radius:50%;width:48px;height:48px;display:grid;place-items:center;font-size:24px}
-    .body{padding:14px;display:grid;gap:12px}.tags,.actions{display:flex;gap:8px;flex-wrap:wrap}.actions{display:grid;grid-template-columns:1fr 1fr}
-    .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.badge{opacity:.45}.badge.on{opacity:1;border-color:#ffd166;background:linear-gradient(145deg,#3b3216,#101722)}
-    input{width:100%;border:1px solid #263348;background:#0b111a;color:white;border-radius:8px;padding:11px}label{display:grid;gap:6px;color:#aab6c7;font-size:13px;font-weight:800}.form{display:grid;gap:10px}
-    @media(min-width:760px){.hero{grid-template-columns:1fr 1fr}.grid.exercises{grid-template-columns:repeat(3,1fr)}.badges{grid-template-columns:repeat(4,1fr)}.week{grid-template-columns:repeat(5,1fr)}.form{grid-template-columns:repeat(2,1fr)}.tabs{position:static}}
+    .profile{display:flex;gap:12px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,#48e28f,#52a8ff);display:grid;place-items:center;color:#071015;font-weight:900;font-size:28px;object-fit:cover}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .label{font-size:12px;color:#aab6c7;font-weight:900;text-transform:uppercase}
+    .value{font-size:28px;font-weight:900;margin-top:4px}
+    .bar{height:12px;background:#060a10;border:1px solid #263348;border-radius:999px;overflow:hidden;margin-top:10px}
+    .fill{height:100%;width:0;background:linear-gradient(90deg,#48e28f,#52a8ff)}
+    .head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:24px 0 12px}
+    .pill,.tag{border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}
+    .pill{background:#ffd166;color:#081018}
+    .tag{background:#0b111a;color:#aab6c7;border:1px solid #263348}
+    .exercise{overflow:hidden;padding:0;cursor:pointer;transition:transform 0.2s}
+    .exercise:hover{transform:translateY(-4px)}
+    .thumb{min-height:145px;padding:14px;display:flex;align-items:end;position:relative;background:var(--bg);isolation:isolate}
+    .thumb:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#0001,#000b);z-index:-1}
+    .ball{position:absolute;right:14px;top:14px;background:white;color:#111;border-radius:5px;width:32px;height:32px;display:grid;place-items:center}
+    .body{padding:14px;display:grid;gap:12px}
+    .tags,.actions{display:flex;gap:8px;flex-wrap:wrap}
+    .actions{display:grid;grid-template-columns:1fr 1fr}
+    .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .badge{opacity:.45;border:1px solid #263348}
+    .badge.on{opacity:1;border-color:#ffd166;background:linear-gradient(145deg,#3b3216,#101722)}
+    input{width:100%;border:1px solid #263348;background:#0b111a;color:white;border-radius:8px;padding:11px}
+    label{display:grid;gap:6px;color:#aab6c7;font-size:13px;font-weight:800}
+    .form{display:grid;gap:14px}
+    @media(min-width:760px){
+      .hero{grid-template-columns:1fr 1fr}
+      .grid.exercises{grid-template-columns:repeat(3,1fr)}
+      .badges{grid-template-columns:repeat(4,1fr)}
+      .week{grid-template-columns:repeat(5,1fr)}
+    }
   </style>
 </head>
 <body>
@@ -106,18 +137,38 @@
     const dayNames=["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
     const ex=(title,video,duration,focus,bg)=>({title,video,duration,focus,bg});
     const defaultPlan={
-      Montag:[ex("Ball-Magier Slalom","https://www.youtube.com/results?search_query=football+dribbling+drills+kids","12 Min.","Dribbling","linear-gradient(135deg,#1bd879,#1967ff)"),ex("Sohle-Stopp Challenge","https://www.youtube.com/results?search_query=soccer+sole+control+kids","8 Min.","Ballkontrolle","linear-gradient(135deg,#ff9f43,#ff4d6d)"),ex("Zielpass zum Kissen","https://www.youtube.com/results?search_query=soccer+passing+drills+kids","10 Min.","Passen","linear-gradient(135deg,#52a8ff,#7c4dff)")],
-      Dienstag:[ex("Sprint und Stopp","https://www.youtube.com/results?search_query=football+speed+drills+kids","10 Min.","Tempo","linear-gradient(135deg,#ff6b9a,#ffd166)"),ex("Beidfuß-König","https://www.youtube.com/results?search_query=two+footed+soccer+drills+kids","12 Min.","Technik","linear-gradient(135deg,#48e28f,#00c2ff)"),ex("Mini-Tor Abschluss","https://www.youtube.com/results?search_query=soccer+shooting+drills+kids","10 Min.","Schuss","linear-gradient(135deg,#ff9f43,#48e28f)")],
-      Mittwoch:[ex("Koordinations-Leiter","https://www.youtube.com/results?search_query=football+coordination+drills+kids","9 Min.","Koordination","linear-gradient(135deg,#52a8ff,#48e28f)"),ex("Richtungswechsel Profi","https://www.youtube.com/results?search_query=soccer+change+of+direction+kids","12 Min.","Wendigkeit","linear-gradient(135deg,#7c4dff,#ff6b9a)"),ex("Jonglier Starter","https://www.youtube.com/results?search_query=soccer+juggling+for+kids+beginner","8 Min.","Gefühl","linear-gradient(135deg,#ffd166,#52a8ff)")],
-      Donnerstag:[ex("Erster Kontakt Held","https://www.youtube.com/results?search_query=first+touch+soccer+drills+kids","10 Min.","Annahme","linear-gradient(135deg,#48e28f,#ff9f43)"),ex("Pass und Lauf","https://www.youtube.com/results?search_query=pass+and+move+soccer+kids","12 Min.","Spielidee","linear-gradient(135deg,#1967ff,#48e28f)"),ex("Balance Ball","https://www.youtube.com/results?search_query=balance+soccer+drills+kids","7 Min.","Stabilität","linear-gradient(135deg,#ff6b9a,#52a8ff)")],
-      Freitag:[ex("Freestyle Freitag","https://www.youtube.com/results?search_query=easy+soccer+skills+for+kids","12 Min.","Tricks","linear-gradient(135deg,#ffd166,#ff6b9a)"),ex("Elfmeter-Ruhe","https://www.youtube.com/results?search_query=penalty+shooting+practice+kids","10 Min.","Fokus","linear-gradient(135deg,#52a8ff,#ff9f43)"),ex("Familien-Match","https://www.youtube.com/results?search_query=fun+soccer+games+kids+parents","15 Min.","Spaß","linear-gradient(135deg,#48e28f,#7c4dff)")]
+      Montag:[
+        ex("Ball-Magier Slalom","https://www.youtube.com/results?search_query=football+dribbling+drills+kids","12 Min.","Dribbling","linear-gradient(135deg,#1bd879,#1967ff)"),
+        ex("Sohle-Stopp Cha-Cha","https://www.youtube.com/results?search_query=sole+of+foot+control+kids","10 Min.","Ballkontrolle","linear-gradient(135deg,#52a8ff,#1bd879)"),
+        ex("Erster Pass-Profi","https://www.youtube.com/results?search_query=first+time+pass+drills","9 Min.","Direktpass","linear-gradient(135deg,#ff6b9a,#48e28f)")
+      ],
+      Dienstag:[
+        ex("Sprint und Stopp","https://www.youtube.com/results?search_query=football+speed+drills+kids","10 Min.","Tempo","linear-gradient(135deg,#ff6b9a,#ffd166)"),
+        ex("Beidfuß-König","https://www.youtube.com/results?search_query=two+footed+soccer+skills","11 Min.","Schuss","linear-gradient(135deg,#ffd166,#ff9f43)"),
+        ex("Wendig wie Katz","https://www.youtube.com/results?search_query=agility+ladder+soccer","10 Min.","Beweglichkeit","linear-gradient(135deg,#ff9f43,#1bd879)")
+      ],
+      Mittwoch:[
+        ex("Koordinations-Leiter","https://www.youtube.com/results?search_query=football+coordination+drills+kids","9 Min.","Koordination","linear-gradient(135deg,#52a8ff,#48e28f)"),
+        ex("Richtungswechsel-Krieg","https://www.youtube.com/results?search_query=agility+direction+change+drills","10 Min.","Wendigkeit","linear-gradient(135deg,#48e28f,#ffd166)"),
+        ex("Kreuzpass Combo","https://www.youtube.com/results?search_query=crossing+passing+drills+kids","11 Min.","Flanken","linear-gradient(135deg,#1967ff,#ff6b9a)")
+      ],
+      Donnerstag:[
+        ex("Erster Kontakt Held","https://www.youtube.com/results?search_query=first+touch+soccer+drills+kids","10 Min.","Annahme","linear-gradient(135deg,#48e28f,#ff9f43)"),
+        ex("Pass und Lauf","https://www.youtube.com/results?search_query=pass+and+move+drills","11 Min.","Spielweise","linear-gradient(135deg,#ff9f43,#52a8ff)"),
+        ex("Torschuss-Trainer","https://www.youtube.com/results?search_query=shooting+drills+for+kids","12 Min.","Torschuss","linear-gradient(135deg,#52a8ff,#ffd166)")
+      ],
+      Freitag:[
+        ex("Freestyle Freitag","https://www.youtube.com/results?search_query=easy+soccer+skills+for+kids","12 Min.","Tricks","linear-gradient(135deg,#ffd166,#ff6b9a)"),
+        ex("Elfmeter-Ruhe","https://www.youtube.com/results?search_query=penalty+kick+practice+kids","10 Min.","Elfmeter","linear-gradient(135deg,#ff6b9a,#48e28f)"),
+        ex("Match-Simulation","https://www.youtube.com/results?search_query=soccer+game+situations+kids","15 Min.","Spiel","linear-gradient(135deg,#48e28f,#1967ff)")
+      ]
     };
     const defaults={profile:{name:"Mia",age:9,club:"FC Barcelona",photo:""},xp:0,streak:0,lastDate:"",completed:{},plan:defaultPlan};
     let state=load();
 
     function clone(x){return JSON.parse(JSON.stringify(x))}
     function load(){try{return {...clone(defaults),...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch{return clone(defaults)}}
-    function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){console.error("Storage Error:",e)}}
     function todayKey(){return new Date().toISOString().slice(0,10)}
     function trainingDay(){const d=dayNames[new Date().getDay()];return days.includes(d)?d:"Montag"}
     function ckey(day,i){return todayKey()+"-"+day+"-"+i}
@@ -126,14 +177,23 @@
 
     function render(){
       const p=state.profile, day=trainingDay(), done=doneCount(day), total=state.plan[day].length;
-      nameView.textContent=p.name||"Kicker"; ageView.textContent=p.age||5; clubView.textContent=p.club||"Lieblingsclub";
-      nameInput.value=p.name||""; ageInput.value=p.age||5; clubInput.value=p.club||""; photoInput.value=p.photo||"";
+      nameView.textContent=p.name||"Kicker"; 
+      ageView.textContent=p.age||5; 
+      clubView.textContent=p.club||"Lieblingsclub";
+      nameInput.value=p.name||""; 
+      ageInput.value=p.age||5; 
+      clubInput.value=p.club||""; 
+      photoInput.value=p.photo||"";
       avatar.outerHTML=p.photo?`<img id="avatar" class="avatar" src="${esc(p.photo)}" alt="Profilbild">`:`<div id="avatar" class="avatar">${esc((p.name||"K")[0].toUpperCase())}</div>`;
-      xpView.textContent=state.xp; streakView.textContent=state.streak; xpBar.style.width=(state.xp%100)+"%"; dayBar.style.width=Math.round(done/total*100)+"%"; today.textContent=day+" · "+done+"/"+total;
+      xpView.textContent=state.xp; 
+      streakView.textContent=state.streak; 
+      xpBar.style.width=(state.xp%100)+"%"; 
+      dayBar.style.width=Math.round(done/total*100)+"%"; 
+      today.textContent=day+" · "+done+"/"+total;
 
       todayExercises.innerHTML=state.plan[day].map((e,i)=>{
         const ok=!!state.completed[ckey(day,i)];
-        return `<article class="card exercise"><div class="thumb" style="--bg:${e.bg}"><div class="ball">⚽</div><h3>${esc(e.title)}</h3></div><div class="body"><div class="tags"><span class="tag">${esc(e.duration)}</span><span class="tag">${esc(e.focus)}</span><span class="tag">+20 XP</span></div><div class="actions"><a class="btn secondary" href="${esc(e.video)}" target="_blank" rel="noopener">Video öffnen</a><button class="btn ${ok?"done":"primary"}" onclick="complete('${day}',${i})">${ok?"Erledigt":"Fertig"}</button></div></div></article>`;
+        return `<article class="card exercise ${ok?"done":""}"><div class="thumb" style="--bg:${e.bg}"><div class="ball">⚽</div><h3>${esc(e.title)}</h3></div><div class="body"><div class="tags"><span class="tag">${esc(e.duration)}</span><span class="tag">${esc(e.focus)}</span></div><div class="actions"><a href="${esc(e.video)}" target="_blank" class="btn secondary">Video ansehen</a><button class="btn ${ok?"done":"primary"}" onclick="complete('${day}',${i})">${ok?"✓ Fertig":"Abschließen"}</button></div></div></article>`;
       }).join("");
 
       weekPlan.innerHTML=days.map(d=>`<article class="card"><h3>${d}</h3><br>${state.plan[d].map((e,i)=>`<p class="muted">${i+1}. ${esc(e.title)} · ${esc(e.duration)}</p>`).join("")}</article>`).join("");
@@ -147,40 +207,60 @@
 
     window.complete=(day,i)=>{
       if(state.completed[ckey(day,i)])return;
-      state.completed[ckey(day,i)]=true; state.xp+=20;
+      state.completed[ckey(day,i)]=true; 
+      state.xp+=20;
       if(doneCount(day)===state.plan[day].length && state.lastDate!==todayKey()){
-        const y=new Date(); y.setDate(y.getDate()-1);
+        const y=new Date(); 
+        y.setDate(y.getDate()-1);
         state.streak=state.lastDate===y.toISOString().slice(0,10)?state.streak+1:1;
         state.lastDate=todayKey();
       }
-      save(); render();
+      save(); 
+      render();
     };
 
     document.querySelectorAll(".tab").forEach(btn=>btn.onclick=()=>{
       document.querySelectorAll(".tab,.view").forEach(x=>x.classList.remove("active"));
-      btn.classList.add("active"); document.getElementById(btn.dataset.view).classList.add("active");
+      btn.classList.add("active"); 
+      document.getElementById(btn.dataset.view).classList.add("active");
       scrollTo({top:0,behavior:"smooth"});
     });
 
     [nameInput,ageInput,clubInput,photoInput].forEach(input=>input.oninput=()=>{
       state.profile={name:nameInput.value,age:Number(ageInput.value||5),club:clubInput.value,photo:photoInput.value};
-      save(); render();
+      save(); 
+      render();
     });
 
-    days.forEach(d=>daysList=document.getElementById("days"), daysList.innerHTML=days.map(d=>`<option value="${d}">`).join(""));
-    editDay.value=trainingDay(); editIndex.value=1; fillEditor();
+    const daysList=document.getElementById("days");
+    daysList.innerHTML=days.map(d=>`<option value="${d}">`).join("");
+    editDay.value=trainingDay(); 
+    editIndex.value=1; 
+    fillEditor();
 
-    editDay.onchange=fillEditor; editIndex.onchange=fillEditor;
+    editDay.onchange=fillEditor; 
+    editIndex.onchange=fillEditor;
+    
     function normDay(v){return days.find(d=>d.toLowerCase()===String(v).trim().toLowerCase())}
     function fillEditor(){
-      const d=normDay(editDay.value)||trainingDay(), i=Math.max(1,Math.min(3,Number(editIndex.value||1)))-1, e=state.plan[d][i];
-      editDay.value=d; editIndex.value=i+1; editTitle.value=e.title; editVideo.value=e.video; editDuration.value=e.duration; editFocus.value=e.focus;
+      const d=normDay(editDay.value)||trainingDay(), 
+            i=Math.max(1,Math.min(3,Number(editIndex.value||1)))-1, 
+            e=state.plan[d][i];
+      editDay.value=d; 
+      editIndex.value=i+1; 
+      editTitle.value=e.title; 
+      editVideo.value=e.video; 
+      editDuration.value=e.duration; 
+      editFocus.value=e.focus;
     }
 
     saveExercise.onclick=()=>{
-      const d=normDay(editDay.value)||trainingDay(), i=Math.max(1,Math.min(3,Number(editIndex.value||1)))-1;
+      const d=normDay(editDay.value)||trainingDay(), 
+            i=Math.max(1,Math.min(3,Number(editIndex.value||1)))-1;
       state.plan[d][i]={...state.plan[d][i],title:editTitle.value||"Neue Übung",video:editVideo.value||"https://www.youtube.com",duration:editDuration.value||"10 Min.",focus:editFocus.value||"Technik"};
-      save(); render(); fillEditor();
+      save(); 
+      render(); 
+      fillEditor();
     };
 
     reset.onclick=()=>{state=clone(defaults);save();render();fillEditor()};
